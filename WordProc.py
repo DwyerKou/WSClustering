@@ -7,15 +7,23 @@ from nltk.stem.porter import *
 stemmer = PorterStemmer()
 s = set()
 remove_word = set()
-# remove_word.add('servic')  # 加这个将最常见的这个词去掉，预计可以提高精度
-# remove_word.add('ws')
-# remove_word.add('web')
-# remove_word.add('wsdl')
+remove_word.add('servic')  # 加这个将最常见的这个词去掉，预计可以提高精度
+remove_word.add('ws')
+remove_word.add('web')
+remove_word.add('wsdl')
+for word in open("stop-words_english_5_en.txt"):
+    length = len(word)
+    if word.endswith('\r\n'):
+        word = word[0:length-2]
+    elif word.endswith('\n'):
+        word = word[0:length-1]
+    print(word)
+    remove_word.add(word)
 
 
 # 该函数用来单独对某一个文件进行词干提取
 def stem(file):
-    s.clear()
+    s = set(remove_word)
     print(file)
     outfile = open(file.replace('serviceName', 'serviceNameStemmed'), 'w')
     for word in open(file):
