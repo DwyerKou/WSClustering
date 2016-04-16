@@ -24,7 +24,6 @@ for word in open("stop-words_english_5_en.txt"):
 # 该函数用来单独对某一个文件进行词干提取
 def stem(file):
     s = set(remove_word)
-    print(file)
     outfile = open(file.replace('serviceName', 'serviceNameStemmed'), 'w')
     for word in open(file):
         length = len(word)
@@ -33,7 +32,7 @@ def stem(file):
         elif word.endswith('\n'):
             word = word[0:length-1]
         new_word = stemmer.stem(word)
-        if new_word not in s:  # # 过滤停用词、通用词，同时去除重复词
+        if new_word not in s:  #过滤停用词、通用词，同时去除重复词
             s.add(new_word)
             outfile.write(new_word.lower() + "\n")
     outfile.close()
