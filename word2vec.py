@@ -33,4 +33,4 @@ def dir_read(root):
 def Word2Vec(file_path):
     dir_read(file_path)
     model = gensim.models.Word2Vec(sentences, size=100, min_count=1, workers=1)
-    model.save('ServiceNameVec.txt')
+    model.save('serviceNameVec.txt')

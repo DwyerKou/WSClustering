@@ -30,7 +30,7 @@ def sim_words(word_list1, word_list2, model):
 
 
 def service_name_sim(path, service_num):
-    model = gensim.models.Word2Vec.load('ServiceNameVec.txt')
+    model = gensim.models.Word2Vec.load('serviceNameVec.txt')
     file_list = []
     for row in range(1, service_num + 1):
         word_list = []
@@ -48,7 +48,7 @@ def service_name_sim(path, service_num):
         file_list.append(word_list)
 
 
-    outfile = open('ServiceNameSim.txt', 'w')
+    outfile = open('serviceNameSim.txt', 'w')
     sim_arr = []
     for row in range(0, service_num):
         sim_row = []

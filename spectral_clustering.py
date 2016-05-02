@@ -7,7 +7,7 @@ from sklearn import cluster
 
 def spectral_clustering(k, service_num):
     sim_mat = []  # 相似度矩阵
-    file_name = "ServiceNameSim.txt"
+    file_name = "serviceNameSim.txt"
     fr = open(file_name)
 
     # 读入相似度矩阵
